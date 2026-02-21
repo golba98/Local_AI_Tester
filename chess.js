@@ -192,6 +192,12 @@ class ChessEngine {
         const moveStr = `${this.getNotation(fromR, fromC)} → ${this.getNotation(toR, toC)}`;
         this.history.push(moveStr);
         
+        // King captured — game over immediately
+        if (target && target.type === 'k') {
+            this.gameState = 'king_captured';
+            return true;
+        }
+        
         this.turn = this.turn === 'w' ? 'b' : 'w';
         this.updateGameState();
         return true;

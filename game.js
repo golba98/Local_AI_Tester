@@ -410,6 +410,9 @@ function render() {
 }
 
 function getStatusText() {
+    if (engine.gameState === 'king_captured') {
+        return `King Captured! ${engine.turn === 'w' ? 'White' : 'Black'} Wins!`;
+    }
     if (engine.gameState === 'checkmate') {
         return `Checkmate! ${engine.turn === 'w' ? 'Black' : 'White'} Wins!`;
     }
