@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Chess</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-switch" id="theme-toggle" aria-label="Theme toggle" role="button" tabindex="0">
+        <div id="light-icon" class="active">☼</div>
+        <div id="dark-icon">☾</div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div>
+                <h1>Chess Pro</h1>
+                <div id="status">White to move</div>
+            </div>
+            <div class="hud" id="hud">
+                <div class="stat">
+                    <div class="stat-label">Timer</div>
+                    <div id="timer" class="stat-value">20.0s</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Score</div>
+                    <div id="score" class="stat-value">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Multiplier</div>
+                    <div id="multiplier" class="stat-value">x1</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Combo</div>
+                    <div id="combo" class="stat-value">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Level</div>
+                    <div id="level" class="stat-value">1</div>
+                </div>
+                <div class="hud-controls">
+                    <select id="theme-select" aria-label="Theme selection"></select>
+                    <button id="sound-toggle" class="secondary">Sound: On</button>
+                    <button id="contrast-toggle" class="secondary">High Contrast: Off</button>
+                    <button id="motion-toggle" class="secondary">Reduced Motion: Off</button>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="board-wrap">
+                <div id="chess-board" class="board" tabindex="0" aria-label="Chess board"></div>
+                <div id="effects-layer" class="effects-layer" aria-hidden="true"></div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="card move-history">
+                    <h3>History</h3>
+                    <ul id="move-list"></ul>
+                </div>
+
+                <div id="ai-controls" class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- AI controls will be moved here by JS -->
+                </div>
+
+                <button id="reset-btn">New Game</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="chess.js"></script>
+    <script src="ai.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
